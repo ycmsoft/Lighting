@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Assignment 4 - Lighting - Alexander Bateman</title>
+</head>
+
+<body>
+  <canvas id="webgl" width="800" height="600" oncontextmenu="return false;">
+    Please use a browser that supports "canvas"
+  </canvas>
+
+  <p>Controls: WASD move | Q/E turn | Mouse look | Left click place block | Right click remove block | Space jump</p>
+  <p>FPS: <span id="fps">--</span> | Gems: <span id="gems">0 / 5</span></p>
+  <p id="story">Find all 5 golden gems hidden in the maze! Walk over them to collect.</p>
+  <p>
+  <button onclick="gl.uniform1i(u_NormalViz, 1)">Normal ON</button>
+  <button onclick="gl.uniform1i(u_NormalViz, 0)">Normal OFF</button>
+  <button onclick="gl.uniform1i(u_LightOn, 1)">Light ON</button>
+  <button onclick="gl.uniform1i(u_LightOn, 0)">Light OFF</button>
+</p>
+<p>
+  Light R: <input type="range" min="0" max="255" value="255" oninput="gl.uniform3f(u_LightColor, this.value/255, document.getElementById('lg').value/255, document.getElementById('lb').value/255)" id="lr">
+  Light G: <input type="range" min="0" max="255" value="255" oninput="gl.uniform3f(u_LightColor, document.getElementById('lr').value/255, this.value/255, document.getElementById('lb').value/255)" id="lg">
+  Light B: <input type="range" min="0" max="255" value="255" oninput="gl.uniform3f(u_LightColor, document.getElementById('lr').value/255, document.getElementById('lg').value/255, this.value/255)" id="lb">
+</p>
+
+<p>
+  (Turn animation off to use light position sliders)
+  <br>
+  Light X: <input type="range" min="-10" max="10" value="0" oninput="g_lightPos[0]=this.value/1.0">
+  Light Y: <input type="range" min="0" max="10" value="3" oninput="g_lightPos[1]=this.value/1.0">
+  Light Z: <input type="range" min="-10" max="10" value="0" oninput="g_lightPos[2]=this.value/1.0">
+</p>
+<p>
+  <button onclick="g_lightAnimate=true">Animation ON</button>
+  <button onclick="g_lightAnimate=false">Animation OFF</button>
+</p>
+
+<button onclick="gl.uniform1i(u_SpotLightOn, 1)">Spotlight ON</button>
+<button onclick="gl.uniform1i(u_SpotLightOn, 0)">Spotlight OFF</button>
+
+
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="src/Camera.js"></script>
+  <script src="src/Triangle.js"></script>
+  <script src="src/Sphere.js"></script>
+  <script src="src/Model.js"></script>
+  <script src="src/Circle.js"></script>
+  <script src="src/Cylinder.js"></script>
+  <script src="src/Cube.js"></script>
+  <script src="src/World.js"></script>
+</body>
+</html>
