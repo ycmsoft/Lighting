@@ -28,9 +28,9 @@
 <p>
   (Turn animation off to use light position sliders)
   <br>
-  Light X: <input type="range" min="-10" max="10" value="0" oninput="g_lightPos[0]=this.value/1.0">
-  Light Y: <input type="range" min="0" max="10" value="3" oninput="g_lightPos[1]=this.value/1.0">
-  Light Z: <input type="range" min="-10" max="10" value="0" oninput="g_lightPos[2]=this.value/1.0">
+  Light X: <input type="range" min="-10" max="10" value="0" step="0.1" oninput="g_lightPos[0]=this.value/1.0">
+  Light Y: <input type="range" min="0" max="10" value="3" step="0.1" oninput="g_lightPos[1]=this.value/1.0">
+  Light Z: <input type="range" min="-10" max="10" value="0" step="0.1" oninput="g_lightPos[2]=this.value/1.0">
 </p>
 <p>
   <button onclick="g_lightAnimate=true">Animation ON</button>
